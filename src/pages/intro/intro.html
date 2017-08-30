@@ -1,0 +1,22 @@
+<ion-content class="dl-intro-page">
+       <ion-slides pager>
+        <ion-slide class="bg" [style.background-image]="'url(' + slide.image + ')'" class="bg-color" *ngFor="let slide of slides">
+          <ion-toolbar>
+            <ion-buttons end>
+              <button class="btn-skip" ion-button color="primary" (click)="goToHomePage()">Skip</button>
+            </ion-buttons>
+          </ion-toolbar>
+          <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+          <p [innerHTML]="slide.description"></p>
+        </ion-slide>
+        <ion-slide>
+          <img src="assets/images/logo/sl-procuts.png" class="slide-image"/>
+          <h2 class="slide-title">Ready To Be Pampered?</h2>
+          <button class="act-continue" ion-button large clear icon-end color="primary" 
+          (click)="goToHomePage()">
+            Continue
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </ion-slide>
+      </ion-slides>
+    </ion-content>
