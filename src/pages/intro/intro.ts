@@ -9,24 +9,23 @@ import { Component, ViewChild } from '@angular/core';
     }
 )
 export class IntroPage {
-    // @ViewChild(Nav) navCtrl: Nav;
     constructor(private navCtrl: NavController) {}
 
     slides = [
         {
-          title: "Welcome to DLprocuts Barbershop &amp; Salon!",
-          description: "<p><b>Dlprocuts</b> keeps you in touch with style and grace. Our wellness professionals have years of well rounded experience and focused on precise details to achieve an authentic look.</p>",
+          title: "DL Pro Cuts Barbershop Salon",
+          description: "<p><b>Dlprocuts</b>DL PRO CUT has a team of professional, experienced, and skilled barbers and stylists who are apart of your  community. We specialize in all hair types, provide a professional family-friendly atmosphere and our customers are # 1</p>",
           image: "assets/images/background/dl-procuts-barbershop.jpg",
         },
         {
-          title: "Dl Dominican Blowdry Bar",
-          description: "<p><b>Dlblowdry Bar</b> is a dominican hair salon that speciaized in styling and hair care for all hair types. Experience a celebrity finish when you leave.</p>",
-          image: "assets/images/gallery/salon/hairstyle.jpg",
+          title: "DL Stylist ",
+          description: "<p><b>Dlblowdry Bar</b> Our professional team of stylists specializes in all the lastest types of weaves, lace fronts wigs, finger waves, pony tails,  short hair styles, natural hair care, locs, braids, cornrows, jerry curls, relaxers, hair color and many more. Experience a  a celebrity finish when you leave!</p>",
+          image: "assets/images/background/stylist.jpg",
         },
         {
-          title: "Listen To Live Stream Music",
-          description: "<p>We keep you entertained with the music You love</p>",
-          image: "assets/images/background/music/dj-radio.jpg",
+          title: "DL Dominican Salon",
+          description: "<p>DL Pro Cuts Dominican stylists specializes blow outs for all different hair types, treatments, relaxers, hair color, wash and set and many more. Our Stylists are trained to evaluate your hair and to educate you on how to strengthen, grow and nourish your looks.</p>",
+          image: "assets/images/background/music/blowdry.jpg",
         }
       ];
 
