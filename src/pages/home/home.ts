@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,LoadingController } from 'ionic-angular';
 import {Toast} from "@ionic-native/toast";
-// import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -10,7 +10,7 @@ import {Toast} from "@ionic-native/toast";
 })
 export class HomePage {
   params: any = {};
-  constructor(public navCtrl: NavController, private toast: Toast) {
+  constructor(public navCtrl: NavController, private toast: Toast, private iab: InAppBrowser) {//, public loadingCtrl: LoadingController
     this.params.data = {
       items: [
         {
@@ -36,28 +36,44 @@ export class HomePage {
           titleHeader: 'DL RADIO',
           description: 'Experience a taste of great musical mix from our popular DJ while your stylist prepare you with the best look.',
           image: 'assets/images/background/music/dj-radio.jpg',
-          button: 'EXPLORE'
+          button: 'LISTEN NOW'
         }
         ]
     }
 
     this.params.events = {
       'onItemClick': function(item: any) {
-        if (window.location.hostname === "localhost") {
-          console.log(item);
-        } else {
-          toast.show(item.title, '1000', 'bottom').subscribe(toast => { });
-        }
-      },
-      'onExplore': function(item: any) {
-        if (this.items.id ===  1) {
+        if (item.id ==  1) {
+           let site_url = 'http://dlprocuts.salonme.com/sheduler/manage/category/3/event/82';
+           this. loadBrowserUrl(site_url);
            console.log("DL barbershop");
         }
-        if (this.items.id ===  2) {
-          console.log("DL blowdry salon");
+        if (item.id ==  2) {
+           let site_url = 'http://www.dlblowdrybar.com/';
+           this. loadBrowserUrl(site_url);
+           console.log("DL blowdry salon");
        }
-       if (this.items.id ===  3) {
-        console.log("DL radio");
+       if (item.id ==  3) {
+           let site_url = 'http://dlprocuts.salonme.com/sheduler/manage/category/3/event/82';
+           this. loadBrowserUrl(site_url);
+           console.log("DL radio");
+     }
+      },
+      'onExplore': function(item: any) {
+        if (item.id ==  1) {
+           let site_url = 'http://dlprocuts.salonme.com/sheduler/manage/category/3/event/82';
+           this. loadBrowserUrl(site_url);
+           console.log("DL barbershop");
+        }
+        if (item.id ==  2) {
+           let site_url = 'http://www.dlblowdrybar.com/';
+           this. loadBrowserUrl(site_url);
+           console.log("DL blowdry salon");
+       }
+       if (item.id ==  3) {
+           let site_url = 'http://dlprocuts.salonme.com/sheduler/manage/category/3/event/82';
+           this. loadBrowserUrl(site_url);
+           console.log("DL radio");
      }
         toast.show("Explore", '1000', 'bottom').subscribe(toast => { });
 
@@ -91,5 +107,16 @@ export class HomePage {
         }
       },
     }
+  }
+
+    loadBrowserUrl(url){
+    const options: InAppBrowserOptions = {
+      zoom: 'no',
+      location: 'yes',
+      hardwareback: 'yes',
+      toolbar: 'yes'
+    }
+    const browser = this.iab.create(`${url}`,'_self', options);
+    browser.close();
   }
 }

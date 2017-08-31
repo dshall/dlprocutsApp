@@ -1,6 +1,6 @@
 {
   "name": "dlProCutApp",
-  "app_id": "",
+  "app_id": "1f9b61a2",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

@@ -1,0 +1,67 @@
+.dl-intro-page ion-slide::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-rendering: optimizeLegibility;
+  z-index: 1;
+  background: linear-gradient(rgb(4, 103, 148) 50%, rgb(255, 66, 0) 100%);
+}
+
+ion-slides .bg{
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.toolbar-background {
+  background: none;
+  border-color: transparent;
+}
+.btn-skip {
+  color: #ffffff !important;
+  background-color: transparent;
+  margin-right: 15px;
+} 
+.act-continue {
+  color: #fff !important;
+}
+.slide-zoom {
+  height: 100%;
+  z-index:10;
+}
+.slide-title{
+  margin: 30% 0 0 0;
+}
+.slide-title, p {
+  margin: 20% 0 0 0;
+}
+
+.slide-title {
+    color: #fff;
+}
+
+.slide-image {
+  max-height: 50%;
+  max-width: 60%;
+  margin: 18px 0;
+  z-index: 1;
+}
+
+b {
+  font-weight: 600;
+  color:#fff;
+}
+
+p {
+  padding: 0 15px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+}

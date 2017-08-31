@@ -3,7 +3,7 @@
   <ion-grid no-padding>
     <ion-row>
       <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 *ngFor="let item of data.items;let i = index">
-        <ion-card text-left (click)="onEvent('onItemClick', item.title, $event)">
+        <ion-card text-left (click)="onEvent('onItemClick', $event, item.title)">
           <div card-image>
             <img images-filter src="{{item.image}}" />
             <h2 card-title>{{item.titleHeader}}</h2>
@@ -17,7 +17,7 @@
           <!--<button ion-button margin button-clear-outline round outline medium left (click)="onEvent('onShare', item, $event)">-->
             <!--{{item.shareButton}}-->
           <!--</button>-->
-          <button ion-button margin-bottom margin-top button-clear-outline round outline medium left (click)="onExploreBarber()">
+          <button ion-button margin-bottom margin-top button-clear-outline round outline medium left (click)="onEvent('onExplore', $event, item)">
             {{item.button}}
           </button>
         </ion-card>
