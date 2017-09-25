@@ -1,10 +1,10 @@
-<!--Google card components-->
-<ion-header>
+ <!--Google card components-->
+ <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title text-left>Home</ion-title>
+    <ion-title text-left>Services</ion-title>
   </ion-navbar>
 </ion-header>
 <!--Content-->
@@ -14,10 +14,43 @@
   <!--[events]="params.events">-->
 <!--</google-card-layout-1>-->
 
-<google-card-layout-2
-  [data]="params.data"
-  [events]="params.events">
-</google-card-layout-2>
+<!--Theme Styled cards 2-->
+<ion-content has-header>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 *ngFor="let item of items;let i = index">
+        <ion-card text-left (click)="onEvent(item)">
+          <div card-image>
+            <img images-filter src="{{item.image}}" />
+            <strong><h2 card-title>{{item.titleHeader}}</h2></strong>
+          </div>
+          <ion-card-content>
+            <ion-card-title>
+              <h1 card-subtitle>{{item.title}}</h1>
+            </ion-card-title>
+            <p card-body-text>{{item.description}}</p>
+          </ion-card-content>
+          <!--<button ion-button margin button-clear-outline round outline medium left (click)="onEvent('onShare', item, $event)">-->
+            <!--{{item.shareButton}}-->
+          <!--</button>-->
+          <button ion-button margin-bottom margin-top button-clear-outline round outline medium left (click)="onEvent(item)">
+            {{item.button}}
+          </button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!--Fab Button-->
+<ion-fab #fab bottom right>
+  <button button-ion-fab ion-fab (click)="share()" ><ion-icon name="md-share"></ion-icon></button>
+  <!-- <ion-fab-list side="left">
+    <a href="https://m.facebook.com/dlprocuts/"><button ion-fab><ion-icon name="logo-facebook"></ion-icon></button></a>
+    <a href="https://twitter.com/"><button ion-fab><ion-icon name="logo-twitter"></ion-icon></button></a>
+    <a href="https://www.google.com/search?q=dl+pro+cuts&lrd=0x89c25c67362b7b49:0xfdc6d7613e8799bc,1,&cad=h#lrd=0x89c25c67362b7b49:0xfdc6d7613e8799bc,1,,"><button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button></a>
+  </ion-fab-list> -->
+</ion-fab>
+
 
 <!--<google-card-layout-3-->
   <!--*ngIf="params.googleCardsLayout3"-->

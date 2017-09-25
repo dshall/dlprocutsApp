@@ -24,7 +24,8 @@ loadSite:ElementRef;
       zoom: 'no',
       location: 'yes',
       hardwareback: 'yes',
-      toolbar: 'yes'
+      toolbar: 'yes',
+      closebuttoncaption: 'DONE?'
     }
     const browser = this.iab.create('http://dlprocuts.salonme.com/sheduler/manage/category/3/event/82','_self', options);
     browser.close();

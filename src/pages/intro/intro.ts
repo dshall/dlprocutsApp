@@ -1,6 +1,6 @@
 import { HomePage } from './../home/home';
 import { NavController, Nav } from 'ionic-angular';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component(
     {
@@ -18,14 +18,14 @@ export class IntroPage {
           image: "assets/images/background/dl-procuts-barbershop.jpg",
         },
         {
-          title: "DL Stylist ",
-          description: "<p><b>Dlblowdry Bar</b> Our professional team of stylists specializes in all the lastest types of weaves, lace fronts wigs, finger waves, pony tails,  short hair styles, natural hair care, locs, braids, cornrows, jerry curls, relaxers, hair color and many more. Experience a  a celebrity finish when you leave!</p>",
-          image: "assets/images/background/stylist.jpg",
+          title: "DL Dominican Salon",
+          description: "<p><b>Dl Dominican Salon</b> Our professional team of stylists specializes in all the lastest types of weaves, lace fronts wigs, finger waves, pony tails,  short hair styles, natural hair care, locs, braids, cornrows, jerry curls, relaxers, hair color and many more. Experience a  a celebrity finish when you leave!</p>",
+          image: "assets/images/background/stylist.png",
         },
         {
-          title: "DL Dominican Salon",
+          title: "DL Stylist",
           description: "<p>DL Pro Cuts Dominican stylists specializes blow outs for all different hair types, treatments, relaxers, hair color, wash and set and many more. Our Stylists are trained to evaluate your hair and to educate you on how to strengthen, grow and nourish your looks.</p>",
-          image: "assets/images/background/music/blowdry.jpg",
+          image: "assets/images/background/blowdry-hair.jpg",
         }
       ];
 

@@ -5,12 +5,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import {LoginPage} from "../pages/login/login";
-import {ShopPage} from "../pages/shop/shop";
 import {BookingPage} from "../pages/booking/booking";
-import {AboutPage} from "../pages/about/about";
-import {ContactPage} from "../pages/contact/contact";
+import { OneSignal } from '@ionic-native/onesignal';
+
+// import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,20 +20,47 @@ export class MyApp {
 
   pages: Array<any>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+  public oneSignal: OneSignal) {
     this.initializeApp();
+    if (this.platform.is('cordova')) {
+      this.oneSignal.startInit('ffa2dd6c-2390-4b94-be10-0795436ec24c','852367622119');
+
+              // OneSignal Code start:
+    // Enable to debug issues:
+    // window["plugins"].OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+
+    var notificationOpenedCallback = function(jsonData) {
+      console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+    };
+
+    this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
+
+    this.oneSignal.handleNotificationReceived().subscribe(() => {
+      // do something when notification is received
+      alert(notificationOpenedCallback);
+     });
+     
+     this.oneSignal.handleNotificationOpened().subscribe(() => {
+       // do something when a notification is opened
+     });
+     
+     this.oneSignal.endInit();
+    } else {
+      console.log("Cannot run one signal in browser");
+      // Cordova not accessible, add mock data if necessary
+    }
 
     // used for an example of ngFor and navigation
     this.pages = [
-      {"title" : "Home", "theme"  : "listViews",  "icon" : "icon-format-align-justify", "listView" : true, component: HomePage},
-      {"title" : "Book Now", "theme"  : "listViews",  "icon" : "icon-format-align-justify", "listView" : true, component: BookingPage},
-      {"title" : "About", "theme"  : "listViews",  "icon" : "icon-format-align-justify", "listView" :false, component: AboutPage},
-      {"title" : "Contact", "theme"  : "listViews",  "icon" : "icon-format-align-justify", "listView" : false, component: ContactPage},
-
+      {"title" : "Home", "theme"  : "listViews",  "icon" : " icon-star-circle", "listView" : true, component: HomePage},
+      {"title" : "Book Now", "theme"  : "listViews",  "icon" : "icon-calendar-check", "listView" : true, component: BookingPage},
+      // {"title" : "Shop", "theme"  : "listViews",  "icon" : " icon-cart", "listView" : false, component: ShopPage},
     ];
 
-  }
 
+
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

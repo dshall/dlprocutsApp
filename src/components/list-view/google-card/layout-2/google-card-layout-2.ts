@@ -35,9 +35,9 @@ export class GoogleCardLayout2 implements AfterViewInit {
     }
 
     onEvent(event: string, item: any, e: any) {
-        // if (e) {
-        //     e.stopPropagation();
-        // }
+        if (e) {
+            e.stopPropagation();
+        }
         if (this.events[event]) {
             this.events[event](item);
         }
