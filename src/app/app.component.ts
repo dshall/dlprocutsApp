@@ -1,14 +1,13 @@
+import { BookingPage } from './../pages/booking/booking';
+import { HomePage } from './../pages/home/home';
 import { IntroPage } from './../pages/intro/intro';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import {BookingPage} from "../pages/booking/booking";
 import { OneSignal } from '@ionic-native/onesignal';
 
-// import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,8 +19,7 @@ export class MyApp {
 
   pages: Array<any>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
-  public oneSignal: OneSignal) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public oneSignal: OneSignal) { // 
     this.initializeApp();
     if (this.platform.is('cordova')) {
       this.oneSignal.startInit('ffa2dd6c-2390-4b94-be10-0795436ec24c','852367622119');
@@ -57,8 +55,6 @@ export class MyApp {
       {"title" : "Book Now", "theme"  : "listViews",  "icon" : "icon-calendar-check", "listView" : true, component: BookingPage},
       // {"title" : "Shop", "theme"  : "listViews",  "icon" : " icon-cart", "listView" : false, component: ShopPage},
     ];
-
-
 
   }
   initializeApp() {

@@ -18,7 +18,7 @@ export class HomePage implements AfterViewInit {
   fabButton: FabButton;
   items: any = {};
   constructor(public navCtrl: NavController, private iab: InAppBrowser, 
-     public platform: Platform, private socialSharing: SocialSharing) {//, public loadingCtrl: LoadingController 
+     public platform: Platform, private socialSharing: SocialSharing) {//, public loadingCtrl: LoadingController , private socialSharing: SocialSharing
       this.items = [
         {
           id: 1,
@@ -74,15 +74,15 @@ export class HomePage implements AfterViewInit {
         }
         this.platform.ready().then(()=>
       {
-        this.iab.create(`${url}`,'_self', options);
-        // browser.close();
+       const browser = this.iab.create(`${url}`,'_self', options);
+        browser.close();
       });
       }
 
       share() {
-        if(this.platform.is('cordova')){
+    
           this.socialSharing.share('Book Your Next Appointment with DLprocut Barbershop & Beauty Salon', 'DLprocut Barbershop & Beauty Salon', 'http://dlprocuts.com');          
-        }
+
       }
       ngAfterViewInit() {
         this.content.ionScroll.subscribe((d) => {
